@@ -1133,26 +1133,26 @@ void ctkDICOMBrowser::onPatientsRightClicked(const QPoint &point)
   QString selectedPatientsCount;
   if (numPatients > 1)
   {
-    selectedPatientsCount = QString(" %1 selected patients").arg(numPatients);
+    selectedPatientsCount = this->tr(" %1 selected patients").arg(numPatients);
   }
 
-  QString metadataString = QString("View DICOM metadata");
+  QString metadataString = this->tr("View DICOM metadata");
   if (numPatients > 1)
   {
-    metadataString += QString(" of") + selectedPatientsCount;
+    metadataString += this->tr(" of") + selectedPatientsCount;
   }
   QAction *metadataAction = new QAction(metadataString, patientsMenu);
   patientsMenu->addAction(metadataAction);
 
-  QString deleteString = QString("Delete") + selectedPatientsCount;
+  QString deleteString = this->tr("Delete") + selectedPatientsCount;
   QAction *deleteAction = new QAction(deleteString, patientsMenu);
   patientsMenu->addAction(deleteAction);
 
-  QString exportString = QString("Export%1 to file system").arg(selectedPatientsCount);
+  QString exportString = this->tr("Export%1 to file system").arg(selectedPatientsCount);
   QAction *exportAction = new QAction(exportString, patientsMenu);
   patientsMenu->addAction(exportAction);
 
-  QString sendString = QString("Send%1 to DICOM server").arg(selectedPatientsCount);
+  QString sendString = this->tr("Send%1 to DICOM server").arg(selectedPatientsCount);
   QAction* sendAction = new QAction(sendString, patientsMenu);
   if (this->isSendActionVisible())
   {

@@ -34,6 +34,7 @@
 class ctkDICOMTableViewPrivate : public Ui_ctkDICOMTableView
 {
   Q_DECLARE_PUBLIC (ctkDICOMTableView)
+  Q_DECLARE_TR_FUNCTIONS(ctkDICOMTableViewPrivate)
 
 protected:
   ctkDICOMTableView* const q_ptr;
@@ -195,7 +196,7 @@ void ctkDICOMTableViewPrivate::applyColumnProperties()
     }
 
     // Apply displayed name
-    QString displayedName = this->dicomDatabase->displayedNameForField(this->queryTableName, columnName);
+    QString displayedName = this->tr(this->dicomDatabase->displayedNameForField(this->queryTableName, columnName).toStdString().c_str());
     this->dicomSQLModel.setHeaderData(col, Qt::Horizontal, displayedName, Qt::DisplayRole);
 
     // Apply visibility
